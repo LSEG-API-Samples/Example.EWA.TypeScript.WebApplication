@@ -4,14 +4,11 @@
 <head>
     <title>TypeScript WebSocket Tester</title>
 </head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ADS WebSocket Market Price Streaming Example</title>
-<!-- Bootstrap  Latest compiled and minified CSS -->
-<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-<!-- Bootstrap  Optional theme -->
-<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+<!-- Bulma CSS -->
+<link rel="stylesheet" href="./node_modules/bulma/css/bulma.css">
+
 
 <!-- customize CSS -->
 <link href="./css/cover.css" rel="stylesheet">
@@ -19,52 +16,66 @@
 <!-- jQuery -->
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 
-<!-- Bootstrap  Latest compiled and minified JavaScript -->
-<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Application JS -->
 <script src="./dist/ws_app.js"></script>
 
 <body>
     <!-- WebSocket connection UI input form -->
-    <div class="container-fluid">
-        <h4>Thomson Reuters WebSocket API with Web Workers Example</h4>
-        <form class="form-inline">
-            <div class="form-group">
-                <label for="txtServerurl">Server:</label> &nbsp;
-                <input type="text" id="txtServerurl" class="form-control" value="172.20.33.11:17000">&nbsp;&nbsp;
-                <button id="btnConnect" type="button" class="btn btn-sm btn-primary">Connect</button>
+    <div class="container is-fullhd">
+        <h4 class="title">Thomson Reuters WebSocket API with Web Workers Example</h4>
+        <div class="field is-horizontal is-grouped is-grouped-left">
+            <div class="field-label is-normal">
+                <label for="txtServerurl" class="label">Server:</label>
             </div>
+            <div class="field-body">
+                <div class="field">
+                    <p class="control">
+                        <input type="text" id="txtServerurl" class="input" value="172.20.33.11:17000">
+                    </p>
+                </div>
+                <div class="field">
+                    <p class="control">
+                        <button id="btnConnect" type="button" class="button is-link">Connect</button>
+                    </p>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <!--<br/>
             <br/>
-            <br/>
-            <div class="form-group">
+            <div class="control">
                 <label for="txtUsername">User:</label> &nbsp;
                 <input type="text" id="txtUsername" class="form-control">&nbsp;&nbsp;
-                <button id="btnLogin" type="button" class="btn btn-sm btn-primary">Login</button> &nbsp;&nbsp;
-                <button id="btnLogout" type="button" class="btn btn-sm btn-primary">Logout</button>
+                <button id="btnLogin" type="button" class="button is-link">Login</button> &nbsp;&nbsp;
+                <button id="btnLogout" type="button" class="button is-link">Logout</button>
             </div>
             <br/>
             <br/>
-            <div class="form-group">
+            <div class="control">
                 <label for="txtServiceName">Name:</label> &nbsp;
                 <input type="text" id="txtServiceName" value="ELEKTRON_DD" class="form-control"> &nbsp;&nbsp;
                 <label for="txtItemName">Name:</label>&nbsp;
                 <input type="text" id="txtItemName" value="" class="form-control"> &nbsp;&nbsp;
-                <button id="btnSubscribe" type="button" class="btn btn-sm btn-primary">Subscribe</button> &nbsp;&nbsp;
-                <button id="btnUnSubscribe" type="button" class="btn btn-sm btn-primary">Unsubscribe</button>
+                <button id="btnSubscribe" type="button" class="button is-link">Subscribe</button> &nbsp;&nbsp;
+                <button id="btnUnSubscribe" type="button" class="button is-link">Unsubscribe</button>
             </div>
-        </form>
-        <!-- Display outgoing messages and commands -->
-        <h5>Outgoing Messages:</h5>
-        <div id="outMessage">
-            <pre id="outMessagePre">
+        -->
+    </div>
+    <!-- Display outgoing messages and commands -->
+    <h5>Outgoing Messages:</h5>
+    <div id="outMessage">
+        <pre id="outMessagePre">
         </pre>
-        </div>
-        <!-- Display incoming messages -->
-        <h5>Incoming Messages:</h5>
-        <div id="inMessage">
-            <pre id="inMessagePre">
+    </div>
+    <!-- Display incoming messages -->
+    <h5>Incoming Messages:</h5>
+    <div id="inMessage">
+        <pre id="inMessagePre">
         </pre>
-        </div>
+    </div>
     </div>
 </body>
 
