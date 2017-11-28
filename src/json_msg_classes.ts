@@ -4,13 +4,12 @@ import { JSONLoginKeyElements } from "./json_msg_interface";
 
 import { JSONItemRequestMsg } from "./json_msg_interface";
 import { JSONItemRequestKey } from "./json_msg_interface";
-import { JSONItemClose } from "./json_msg_interface";
-import { JSONLoginClose } from "./json_msg_interface";
+
+import { JSONClose } from "./json_msg_interface";
 
 export { LoginMsg };
 export { ItemRequestMsg };
-export { ItemCloseRequestMsg };
-export {LoginCloseRequestMsg};
+export {CloseMsg};
 
 const loginDomain: string = "Login";
 
@@ -70,22 +69,16 @@ class ItemRequestMsgKey implements JSONItemRequestKey {
   }
 }
 
-class ItemCloseRequestMsg implements JSONItemClose {
-  Id: number;
-  Type: string;
-  constructor(Id: number) {
-    this.Id = Id;
-    this.Type = "Close";
-  }
-}
 
-class LoginCloseRequestMsg implements JSONLoginClose {
-  Domain: string;
+class CloseMsg implements JSONClose{
+  Domain?: string;
   Id: number;
   Type: string;
-  constructor(Id: number) {
+
+  constructor(Id: number, Domain?: string) {
     this.Id = Id;
-    this.Domain = loginDomain;
+    this.Domain = Domain;
     this.Type = "Close";
   }
+
 }
