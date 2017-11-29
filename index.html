@@ -8,7 +8,14 @@
 
 
 <!-- customize CSS -->
-<!--<link href="./css/cover.css" rel="stylesheet">-->
+<link href="./css/cover.css" rel="stylesheet">
+
+<!-- Bulma CSS -->
+<!--<link rel="stylesheet" href="./node_modules/bulma/css/bulma.css">-->
+
+<!-- PureCSS -->
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
+    crossorigin="anonymous">
 
 <!-- Application JS -->
 <script src="./dist/ws_app.js"></script>
@@ -16,37 +23,40 @@
 <body>
     <!-- WebSocket connection UI input form -->
     <h4>Thomson Reuters WebSocket API with Web Workers Example</h4>
-    <form>
-        <div>
-            <label for="txtServerurl" class="label">Server:</label>
-            <input type="text" id="txtServerurl"  value="172.20.33.11:17000">
-            <button id="btnConnect" type="button">Connect</button>
-        </div>
-        <br/>
-        <div>
-            <label for="txtUsername">User:</label> &nbsp;
-            <input type="text" id="txtUsername">&nbsp;&nbsp;
-            <button id="btnLogin" type="button">Login</button> &nbsp;&nbsp;
-            <button id="btnLogout" type="button">Logout</button>
-        </div>
-        <br/>
-        <div class="control">
-            <label for="txtServiceName">Name:</label> &nbsp;
-            <input type="text" id="txtServiceName" value="ELEKTRON_DD"> &nbsp;&nbsp;
-            <label for="txtItemName">Name:</label>&nbsp;
-            <input type="text" id="txtItemName" value=""> &nbsp;&nbsp;
-            <button id="btnSubscribe" type="button">Subscribe</button> &nbsp;&nbsp;
-            <button id="btnUnSubscribe" type="button">Unsubscribe</button>
-        </div>
+    <form class="pure-form">
+        <fieldset>
+
+            <div class="pure-control-group">
+                <label for="txtServerurl">Server:</label>
+                <input type="text" id="txtServerurl" value="172.20.33.11:17000" class="pure-input-1-4">
+                <button id="btnConnect" type="button" class="button-small pure-button pure-button-primary ">Connect</button>
+            </div>
+            <br/>
+            <div class="pure-control-group">
+                <label for="txtUsername">User:</label> &nbsp;
+                <input type="text" id="txtUsername">&nbsp;&nbsp;
+                <button id="btnLogin" type="button" class="pure-button pure-button-primary">Login</button> &nbsp;&nbsp;
+                <button id="btnLogout" type="button" class="pure-button pure-button-primary">Logout</button>
+            </div>
+            <br/>
+            <div class="pure-control-group">
+                <label for="txtServiceName">Name:</label> &nbsp;
+                <input type="text" id="txtServiceName" value="ELEKTRON_DD"> &nbsp;&nbsp;
+                <label for="txtItemName">Name:</label>&nbsp;
+                <input type="text" id="txtItemName" value=""> &nbsp;&nbsp;
+                <button id="btnSubscribe" type="button" class="pure-button pure-button-primary">Subscribe</button> &nbsp;&nbsp;
+                <button id="btnUnSubscribe" type="button" class="pure-button pure-button-primary">Unsubscribe</button>
+            </div>
+        </fieldset>
     </form>
     <!-- Display outgoing messages and commands -->
-    <h5>Outgoing Messages:</h5>
+    <h5 class="header">Outgoing Messages:</h5>
     <div id="outMessage">
         <pre id="outMessagePre">
         </pre>
     </div>
     <!-- Display incoming messages -->
-    <h5>Incoming Messages:</h5>
+    <h5 class="header">Incoming Messages:</h5>
     <div id="inMessage">
         <pre id="inMessagePre">
         </pre>
