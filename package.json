@@ -1,0 +1,20 @@
+{
+  "name": "elektron_ws_typescript",
+  "version": "1.0.0",
+  "description": "A simple project that demonstrates how to implement Elektron WebSocket with TypeScript",
+  "main": "index.html",
+  "dependencies": {
+    "@types/websocket": "0.0.34"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.4.0",
+    "source-map-loader": "^0.2.3",
+    "typescript": "^2.6.1",
+    "webpack": "^3.8.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Wasin Waeosri <wasin.waeosri@thomsonreuters.com> (https://developers.thomsonreuters.com/) ",
+  "license": "Apache-2.0"
+}

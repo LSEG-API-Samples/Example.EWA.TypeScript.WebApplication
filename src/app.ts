@@ -2,15 +2,20 @@ import { LoginMsg } from "./json_msg_classes";
 import { ItemRequestMsg } from "./json_msg_classes";
 import { CloseMsg } from "./json_msg_classes";
 
-
-import * as $ from "jquery";
-
 let ws: any = null;
-let serverurl: string = "";
+
 const protocol: string = "tr_json2";
 const loginID: number = 1;
 const loginDomain: string = "Login";
 let itemID: number = 0;
+
+let btnConnect: any;
+let inMessagePre: any;
+let outMessagePre: any;
+let btnLogin: any;
+let btnLogout: any;
+let btnSubscribe: any;
+let btnUnSubscribe: any;
 
 // ------------------------------------------ WebSocket Code ---------------------------------------
 
@@ -27,7 +32,9 @@ function connect(url: string): void {
 function onOpen(event: any): void {
   console.log("connected");
 
-  $("#btnConnect").html("Connected");
+  //$("#btnConnect").html("Connected");
+
+  btnConnect.innerHTML = "Connected";
 }
 
 //An event listener to be called when a message is received from the server
@@ -38,7 +45,8 @@ function onMessage(event: any): void {
 
   //Iterate each JSON message and send it to market_price_app.js
   for (let index = 0; index < incomingdata.length; index++) {
-    $("#inMessagePre").html(JSON.stringify(incomingdata[index], undefined, 2));
+   
+    display(inMessagePre,JSON.stringify(incomingdata[index], undefined, 2));
     //If incoming message is PING (server ping)
     if (incomingdata[index].Type === "Ping") {
       sendPong();
@@ -49,56 +57,75 @@ function onMessage(event: any): void {
 //An event listener to be called when an error occurs. This is a simple event named "error".
 function onError(event: any): void {
   console.log(JSON.stringify(event.data));
-  $("#inMessagePre").html(JSON.stringify(event.data, undefined, 2));
+  
+  display(inMessagePre,JSON.stringify(event.data, undefined, 2));
 }
 
 //An event listener to be called when the WebSocket connection's readyState changes to CLOSED.
 function onClose(event: any): void {
   console.log(JSON.stringify(event.data));
-  $("#inMessagePre").html(JSON.stringify(event.data, undefined, 2));
+  
+  display(inMessagePre,"WebSocket Connection Closed");
 }
 
 //----------------------------------- Application Logic Code ------------------------
 
-$(document).ready(function() {
-  $("#btnConnect").click(function() {
-    serverurl = `ws://${$("#txtServerurl").val()}/WebSocket`;
-    //serverurl = 'ws://' + $('#txtServerurl').val() + '/WebSocket';
+window.onload = () => {
+  btnConnect = document.getElementById("btnConnect");
+  outMessagePre = document.getElementById("outMessagePre");
+  inMessagePre  = document.getElementById("inMessagePre");
+  btnLogin = document.getElementById("btnLogin");
+  btnLogout = document.getElementById("btnLogout");
+  btnSubscribe = document.getElementById("btnSubscribe");
+  btnUnSubscribe = document.getElementById("btnUnSubscribe");
+
+  btnConnect.addEventListener("click", function() {
+    let txtServerurl:any = document.getElementById("txtServerurl");
+    let serverurl: string = "";
+    serverurl = `ws://${txtServerurl.value}/WebSocket`;
     connect(serverurl);
   });
 
-  $("#btnLogin").click(function() {
-    let username: any = $("#txtUsername").val();
-    sendLogin(username);
+  btnLogin.addEventListener("click", function() {
+    let txtUsername:any = document.getElementById("txtUsername");
+    sendLogin(txtUsername.value);
   });
 
-  $("#btnSubscribe").click(function() {
-    let servicename: any = $("#txtServiceName").val();
-    let itemname: any = $("#txtItemName").val();
-    sendItemrequest(servicename, itemname);
+  btnLogout.addEventListener("click", function() {
+    sendCloseLoginrequest();
   });
 
-  $("#btnUnSubscribe").click(function() {
+  btnSubscribe.addEventListener("click", function() {
+    let txtServiceName:any = document.getElementById("txtServiceName");
+    let txtItemName:any = document.getElementById("txtItemName");
+    sendItemrequest(txtServiceName.value, txtItemName.value);
+  });
+
+  btnUnSubscribe.addEventListener("click", function() {
     sendItemCloserequest();
   });
 
-  $("#btnLogout").click(function() {
-    sendCloseLoginrequest();
-  });
-});
+
+};
+
+//display string value in selected element
+function display(el:any, msg:string): void{
+  el.innerHTML = msg;
+}
+
 
 //Create the Login JSON message from LoginMsg class and send it to ADS WebSocket
 function sendLogin(username: string): void {
   let login: LoginMsg = new LoginMsg(loginID, username, "777", "127.0.0.1");
   ws.send(JSON.stringify(login));
-  $("#outMessagePre").html(JSON.stringify(login));
+  display(outMessagePre,JSON.stringify(login));
 }
 
 //Create the client PONG message  and send it to ADS WebSocket
 function sendPong(): void {
   let pong: any = { Type: "Pong" };
   ws.send(JSON.stringify(pong));
-  $("#outMessagePre").html(JSON.stringify(pong));
+  display(outMessagePre,JSON.stringify(pong));
 }
 
 //Create the Item Request JSON message from ItemRequestMsg class and send it to ADS WebSocket
@@ -117,31 +144,27 @@ function sendItemrequest(service: string, itemname: string): void {
   );
 
   ws.send(JSON.stringify(itemrequest));
-  $("#outMessagePre").html(JSON.stringify(itemrequest));
+  display(outMessagePre,JSON.stringify(itemrequest));
 }
 
 //Create the Item Close Request JSON message from ItemCloseRequestMsg class and send it to ADS WebSocket
 function sendItemCloserequest(): void {
   //let closeitemrequestMsg: ItemCloseRequestMsg = new ItemCloseRequestMsg(itemID);
 
-  
   let closeitemrequestMsg: CloseMsg = new CloseMsg(itemID);
 
   ws.send(JSON.stringify(closeitemrequestMsg));
-  $("#outMessagePre").html(JSON.stringify(closeitemrequestMsg));
+  display(outMessagePre,JSON.stringify(closeitemrequestMsg));
 }
 
 //Create the Login Close Request JSON message from LoginCloseRequestMsg class and send it to ADS WebSocket
 function sendCloseLoginrequest(): void {
-  //let logincloserequestmsg: LoginCloseRequestMsg = new LoginCloseRequestMsg(loginID);
 
-  
-  let logincloserequestmsg: CloseMsg = new CloseMsg(loginID,loginDomain);
+  let logincloserequestmsg: CloseMsg = new CloseMsg(loginID, loginDomain);
 
   ws.send(JSON.stringify(logincloserequestmsg));
-  $("#outMessagePre").html(JSON.stringify(logincloserequestmsg));
+  display(outMessagePre,JSON.stringify(logincloserequestmsg));
 
   ws.close();
-  $("#btnConnect").html("Connect");
+  btnConnect.innerHTML = "Connect";
 }
-
