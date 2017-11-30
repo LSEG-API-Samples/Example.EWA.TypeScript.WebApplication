@@ -1,15 +1,14 @@
-/*html,
+html,
 body {
   height: 100%;
   background-color: #111;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+body {
+  color: #ccc;
+  text-align: left;
 }
 h4,h5{
     color: #FF8000;
-}*/
-
-.button-small {
-  font-size: 85%;
 }
 
 

@@ -16,5 +16,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Wasin Waeosri <wasin.waeosri@thomsonreuters.com> (https://developers.thomsonreuters.com/) ",
-  "license": "Apache-2.0"
+  "license": "MIT"
 }
