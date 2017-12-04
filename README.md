@@ -22,12 +22,37 @@ This example also uses the following 3rd party libraries for UI presentation.
 
 Both of jQuery and Bootstrap are distributed under the [MIT license](https://opensource.org/licenses/MIT). Please see more detail in the LICENSE.md file.
 
+## Package
+The project includes complete TypeScript source code, CSS files and all required static dependencies. The dynamic dependencies for compiling and building JavaScript source file are defined in *package.json* file which can be installed via ```npm install``` command.
+
+The project includes the following files and folder
+- *src/* folder: The folder that contains all TypeScript source files
+- *web/* folder: The folder that contains all application web page files
+    - *web/dist* folder: The folder that the compiled JavaScript file named *web_app.js* will be generated
+    - *web/index.html*: The application HTML page
+    - *web/css/cover.css*: The application CSS file
+    - *web/libs/jquery-3.2.1.min.js*: jQuery library file
+    - *web/bootstrap/css*, *web/bootstarp/fonts* and *web/bootstrap/js* folders: The folders for Bootstrap CSS and libraries files
+- package.json: Project's NPM dependencies file
+- tsconfig.json: Project's TypeSccript compiler options file
+- webpack.config.js: Project's Webpack compiler options file
+
+
 ## How to run this example application
 1. Unzip or download the example project folder into a directory of your choice 
 2. Run ```$> npm install``` in the command prompt to install all the dependencies required to run the sample in a subdirectory called *node_modules/*.
-3. Run ```$> webpack``` in the command prompt to build and compile all TypeScript files into JavaScript
-4. Deploy the project in any web server (recommend [http-server](https://www.npmjs.com/package/http-server) for quick dev/testing)
 
+![npm command display](images/npm_install.png "npm command display")
+
+3. If the machine is behind a proxy server, you need to configure Node.js uses proxy instead of a direct HTTP connection via the following command in command prompt: ```set https_proxy=http://<proxy.server>:<port>```
+4. Run ```$> webpack``` in the command prompt to build and compile all TypeScript files in *src* into JavaScript source file (*/web/dist/* folder)
+
+![webpack command display](images/webpack.png "webpack command display")
+
+5. Copy and deploy the *web* folder into in any web server (recommend [http-server](https://www.npmjs.com/package/http-server) for quick dev/testing)
+6. Open web browser, then navigate to index.html of the web server (example for http-server: ```hhttp://localhost:8080/index.html```)  
+
+![application display](images/application.png "application display")
 
 ## References
 For further details, please check out the following resources:
@@ -36,11 +61,3 @@ For further details, please check out the following resources:
 * [Mozilla Developer Network: Web Workers API page](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 
 For any question related to this article or Elektron WebSocket API page, please use the Developer Community [Q&A Forum](https://community.developers.thomsonreuters.com/).
-
-npm install -g webpack
-npm install --save-dev jquery
-npm install --save-dev bootstrap@3
-npm install --save @types/jquery
-npm install --save @types/websocket
-npm install --save-dev typescript awesome-typescript-loader source-map-loader
-npm install --save-dev bulma

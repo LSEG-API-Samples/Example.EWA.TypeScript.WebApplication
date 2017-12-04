@@ -1,10 +1,10 @@
 var path = require("path");
 
 module.exports = {
-    entry: "./src/app.ts",
+    entry: "./src/web_app.ts",
     output: {
         filename: "ws_app.js",
-        path: __dirname + "/dist"
+        path: __dirname + "/web/dist"
     },
 
     // Enable sourcemaps for debugging webpack's output.

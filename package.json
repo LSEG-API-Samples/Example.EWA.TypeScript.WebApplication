@@ -15,6 +15,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Wasin Waeosri <wasin.waeosri@thomsonreuters.com> (https://developers.thomsonreuters.com/) ",
+  "author": "Wasin Waeosri <wasin.waeosri@thomsonreuters.com> (https://developers.thomsonreuters.com/)",
   "license": "MIT"
 }
