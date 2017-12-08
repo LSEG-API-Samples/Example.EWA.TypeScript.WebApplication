@@ -45,9 +45,9 @@ The project includes the following files and folder
 ![npm command display](images/npm_install.png "npm command display")
 
 3. If the machine is behind a proxy server, you need to configure Node.js uses proxy instead of a direct HTTP connection via the following command in command prompt: ```set https_proxy=http://<proxy.server>:<port>```
-4. Run ```$> webpack``` in the command prompt to build and compile all TypeScript files in *src* into JavaScript source file (*/web/dist/* folder)
+4. Run ```$> npx webpack``` in the command prompt to build and compile all TypeScript files in *src* into JavaScript source file (*/web/dist/* folder)
 
-![webpack command display](images/webpack_screen.png "webpack command display")
+![webpack command display](images/webpack_screen2.png "webpack command display")
 
 5. Copy and deploy the *web* folder into in any web server (recommend [http-server](https://www.npmjs.com/package/http-server) for quick dev/testing)
 6. Open web browser, then navigate to index.html of the web server (example for http-server: ```hhttp://localhost:8080/index.html```)  
