@@ -1,6 +1,6 @@
 //Interface for Login domain JSON message
 export interface JSONLogin {
-    Id:number;
+    ID:number;
     Domain:string;
     Key: JSONLoginKey;
 }
@@ -19,7 +19,7 @@ export interface JSONLoginKeyElements{
 
 //Interface for Market Price domain item request JSON message
 export interface JSONItemRequestMsg {
-    Id: number;
+    ID: number;
     Key: JSONItemRequestKey;
 }
 
@@ -32,6 +32,6 @@ export interface JSONItemRequestKey {
 //Interface for close JSON message
 export interface JSONClose {
     Domain?: string;
-    Id: number;
+    ID: number;
     Type: string;
 }
