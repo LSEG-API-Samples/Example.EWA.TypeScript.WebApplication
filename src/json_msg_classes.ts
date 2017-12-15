@@ -14,17 +14,17 @@ export {CloseMsg};
 const loginDomain: string = "Login";
 
 class LoginMsg implements JSONLogin {
-  Id: number;
+  ID: number;
   Domain: string = loginDomain;
   Key: JSONLoginKey;
 
   constructor(
-    Id: number,
+    ID: number,
     Name: string,
     ApplicationId: string,
     Position: string
   ) {
-    this.Id = Id;
+    this.ID = ID;
     let loginMsgKey_class = new LoginMsgKey(Name, ApplicationId, Position);
     this.Key = loginMsgKey_class;
   }
@@ -50,10 +50,10 @@ class LoginMsgKey implements JSONLoginKey {
 }
 
 class ItemRequestMsg implements JSONItemRequestMsg {
-  Id: number;
+  ID: number;
   Key: JSONItemRequestKey;
-  constructor(Id: number, Name: string, Service: string) {
-    this.Id = Id;
+  constructor(ID: number, Name: string, Service: string) {
+    this.ID = ID;
     let itemrequestKey_class = new ItemRequestMsgKey(Name, Service);
     this.Key = itemrequestKey_class;
   }
@@ -72,11 +72,11 @@ class ItemRequestMsgKey implements JSONItemRequestKey {
 
 class CloseMsg implements JSONClose{
   Domain?: string;
-  Id: number;
+  ID: number;
   Type: string;
 
-  constructor(Id: number, Domain?: string) {
-    this.Id = Id;
+  constructor(ID: number, Domain?: string) {
+    this.ID = ID;
     this.Domain = Domain;
     this.Type = "Close";
   }
