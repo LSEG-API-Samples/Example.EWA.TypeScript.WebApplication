@@ -61,11 +61,14 @@ class ItemRequestMsg implements JSONItemRequestMsg {
 
 class ItemRequestMsgKey implements JSONItemRequestKey {
   Name: string;
-  Service: string;
+  Service?: string;
 
-  constructor(Name: string, Service: string) {
+  constructor(Name: string, Service?: string) {
     this.Name = Name;
-    this.Service = Service;
+    if (Service !==''){
+      this.Service = Service;
+    }
+    
   }
 }
 
