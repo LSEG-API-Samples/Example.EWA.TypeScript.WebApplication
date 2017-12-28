@@ -8,6 +8,7 @@ const protocol: string = "tr_json2";
 const loginID: number = 1;
 const loginDomain: string = "Login";
 let itemID: number = 0;
+let itemname:string = "";
 
 let btnConnect: any;
 let inMessagePre: any;
@@ -39,13 +40,19 @@ function onOpen(event: any): void {
 
 //An event listener to be called when a message is received from the server
 function onMessage(event: any): void {
-  console.log(JSON.stringify(event.data));
+  //console.log(JSON.stringify(event.data));
 
   let incomingdata = JSON.parse(event.data.toString());
 
   //Iterate each JSON message and send it to market_price_app.js
+  let data:any = null;
   for (let index = 0; index < incomingdata.length; index++) {
-   
+    data = incomingdata[index];
+    //console.log(`incoming msgtype is ${data.Type} domain is ${data.Domain} itemname = ${itemname}`);
+    if(data.Type === 'Refresh' && data.Key.Name === itemname){
+      //Push subscription item name and ID to selection box
+      pushIDstoDropDownMenu(data.Key.Name, data.ID);
+    }
     display(inMessagePre,JSON.stringify(incomingdata[index], undefined, 2));
     //If incoming message is PING (server ping)
     if (incomingdata[index].Type === "Ping") {
@@ -98,11 +105,24 @@ window.onload = () => {
   btnSubscribe.addEventListener("click", function() {
     let txtServiceName:any = document.getElementById("txtServiceName");
     let txtItemName:any = document.getElementById("txtItemName");
-    sendItemrequest(txtServiceName.value, txtItemName.value);
+    itemname = txtItemName.value;
+    sendItemrequest(txtServiceName.value, itemname);
   });
 
   btnUnSubscribe.addEventListener("click", function() {
-    sendItemCloserequest();
+    //get Selected ID to unsubscribe
+    let cb:any = document.getElementById("listenerCombo");
+    if(cb.selectedIndex === -1){ //If user does not select any ID, alert user
+      window.alert("Select ID first");
+      return;
+    }
+    //get unsubscribe ID from HTML select element
+    let unsubID:number = parseInt(cb.options[cb.selectedIndex].value);
+    //Unsubscribe 
+    sendItemCloserequest(unsubID);
+
+    //remove unsubscribe ID from HTML select element
+    cb.removeChild(cb.options[cb.selectedIndex]);
   });
 
 
@@ -129,7 +149,7 @@ function sendPong(): void {
 }
 
 //Create the Item Request JSON message from ItemRequestMsg class and send it to ADS WebSocket
-function sendItemrequest(service: string, itemname: string): void {
+function sendItemrequest(service: string, item_name: string): void {
   //set Item ID value
   if (itemID === 0) {
     itemID = loginID + 1;
@@ -139,19 +159,22 @@ function sendItemrequest(service: string, itemname: string): void {
 
   let itemrequest: ItemRequestMsg = new ItemRequestMsg(
     itemID,
-    itemname,
+    item_name,
     service
   );
 
   ws.send(JSON.stringify(itemrequest));
   display(outMessagePre,JSON.stringify(itemrequest));
+
+  //pushIDstoDropDownMenu(item_name, itemID);
 }
 
+
 //Create the Item Close Request JSON message from ItemCloseRequestMsg class and send it to ADS WebSocket
-function sendItemCloserequest(): void {
+function sendItemCloserequest(unsubID:number): void {
   //let closeitemrequestMsg: ItemCloseRequestMsg = new ItemCloseRequestMsg(itemID);
 
-  let closeitemrequestMsg: CloseMsg = new CloseMsg(itemID);
+  let closeitemrequestMsg: CloseMsg = new CloseMsg(unsubID);
 
   ws.send(JSON.stringify(closeitemrequestMsg));
   display(outMessagePre,JSON.stringify(closeitemrequestMsg));
@@ -168,3 +191,13 @@ function sendCloseLoginrequest(): void {
   ws.close();
   btnConnect.innerHTML = "Connect";
 }
+
+function pushIDstoDropDownMenu(itemname:string, id:number):void {
+
+  let cb:any = document.getElementById("listenerCombo");
+  let opt:any = document.createElement("option");
+  opt.value = id;
+  opt.text = `${itemname} ID ${id}`;
+  cb.options.add(opt);
+}
+
