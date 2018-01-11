@@ -14,19 +14,21 @@ The example supports Chrome, Firefox and IE11 (based on the WebSocket and Web Wo
 
 ## Prerequisite
 This example requires the following dependencies softwares.
-1. [Node.js](https://nodejs.org/en/) - version 6.10 or higher.
+1. [Node.js](https://nodejs.org/en/) runtime - version 8.9.3 or higher.
 2. [npm](https://www.npmjs.com/) package manager (included in Node.js)
-3. [TypeScript](https://www.typescriptlang.org) compiler
-4. [Express.js](https://expressjs.com/) web framework
+3. [TypeScript](https://www.typescriptlang.org) compiler (will be installed via ```npm install``` command)
+4. [Express.js](https://expressjs.com/) web framework (will be installed via ```npm install``` command)
 
 This example also uses the following 3rd party libraries for UI presentation.
-1. [jQuery 3.2.1](https://jquery.com/) 
-2. [Bootstrap 3.3.7](https://getbootstrap.com/docs/3.3/)
+1. [jQuery 3.2.1](https://jquery.com/) JavaScript library
+2. [Bootstrap 3.3.7](https://getbootstrap.com/docs/3.3/) CSS library
 
 jQuery,Bootstrap and Express.js are distributed under the [MIT license](https://opensource.org/licenses/MIT). Please see more detail in the LICENSE.md file.
 
+*Note: This example uses jQuery and Bootstrap for Web UI theme and color only, not for HTML DOM interaction. 
+
 ## Package
-The project includes complete TypeScript source codes, a simple Express.js web server applciation file, CSS files and all required static dependencies. The dynamic dependencies for compiling and building JavaScript source file are defined in *package.json* file which can be installed via ```npm install``` command.
+The project includes complete TypeScript source codes, a simple Express.js web server applciation file, CSS files and all required static dependencies. All dynamic dependencies for compiling and building JavaScript source file are defined in *package.json* file which can be installed via ```npm install``` command.
 
 The project includes the following files and folder
 - *src/* folder: The folder that contains all TypeScript source files
@@ -63,7 +65,12 @@ The project includes the following files and folder
 ## References
 For further details, please check out the following resources:
 * [Thomson Reuters Elektron WebSocket API page](https://developers.thomsonreuters.com/websocket-api) on the [Thomson Reuters Developer Community](https://developers.thomsonreuters.com/) web site.
+* [Developer Webinar Recording: Introduction to Electron Websocket API](https://www.youtube.com/watch?v=CDKWMsIQfaw)
 * [TypeScript programming language: Documentation](https://www.typescriptlang.org/docs/home.html).
 * [Mozilla Developer Network: Web Workers API page](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 
 For any question related to this article or Elektron WebSocket API page, please use the Developer Community [Q&A Forum](https://community.developers.thomsonreuters.com/).
+
+### Change logs
+- 21 December 2017: Fixed UI, change service name to be optional parameter, Add README.md content
+- 11 January 2018: Now the application can handle subscription IDs.

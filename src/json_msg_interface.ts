@@ -23,10 +23,10 @@ export interface JSONItemRequestMsg {
     Key: JSONItemRequestKey;
 }
 
-//Interface for Market Price domain item request's key attribute JSON message
+//Interface for Market Price domain item request's key attribute JSON message, service name is an optional 
 export interface JSONItemRequestKey {
     Name: string;
-    Service: string;
+    Service?: string;
 }
 
 //Interface for close JSON message
