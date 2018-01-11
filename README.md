@@ -73,4 +73,4 @@ For any question related to this article or Elektron WebSocket API page, please 
 
 ### Change logs
 - 21 December 2017: Fixed UI, change service name to be optional parameter, Add README.md content
-- 28 December 2017: Now the application can handle subscription IDs.
+- 11 January 2018: Now the application can handle subscription IDs.
