@@ -1,3 +1,10 @@
+//|-----------------------------------------------------------------------------
+//|            This source code is provided under the Apache 2.0 license      --
+//|  and is provided AS IS with no warranty or guarantee of fit for purpose.  --
+//|                See the project's LICENSE.md for details.                  --
+//|           Copyright Refinitiv 2017.       All rights reserved.            --
+//|-----------------------------------------------------------------------------
+
 import { LoginMsg } from "./json_msg_classes";
 import { ItemRequestMsg } from "./json_msg_classes";
 import { CloseMsg } from "./json_msg_classes";
@@ -134,21 +141,21 @@ function display(el:any, msg:string): void{
 }
 
 
-//Create the Login JSON message from LoginMsg class and send it to ADS WebSocket
+//Create the Login JSON message from LoginMsg class and send it to Real-Time Advanced Distribution Server WebSocket
 function sendLogin(username: string): void {
   let login: LoginMsg = new LoginMsg(loginID, username, "777", "127.0.0.1");
   ws.send(JSON.stringify(login));
   display(outMessagePre,JSON.stringify(login));
 }
 
-//Create the client PONG message  and send it to ADS WebSocket
+//Create the client PONG message  and send it to Real-Time Advanced Distribution Server WebSocket
 function sendPong(): void {
   let pong: any = { Type: "Pong" };
   ws.send(JSON.stringify(pong));
   display(outMessagePre,JSON.stringify(pong));
 }
 
-//Create the Item Request JSON message from ItemRequestMsg class and send it to ADS WebSocket
+//Create the Item Request JSON message from ItemRequestMsg class and send it to Real-Time Advanced Distribution Server WebSocket
 function sendItemrequest(service: string, item_name: string): void {
   //set Item ID value
   if (itemID === 0) {
@@ -170,7 +177,7 @@ function sendItemrequest(service: string, item_name: string): void {
 }
 
 
-//Create the Item Close Request JSON message from ItemCloseRequestMsg class and send it to ADS WebSocket
+//Create the Item Close Request JSON message from ItemCloseRequestMsg class and send it to Real-Time Advanced Distribution Server WebSocket
 function sendItemCloserequest(unsubID:number): void {
   //let closeitemrequestMsg: ItemCloseRequestMsg = new ItemCloseRequestMsg(itemID);
 
@@ -180,7 +187,7 @@ function sendItemCloserequest(unsubID:number): void {
   display(outMessagePre,JSON.stringify(closeitemrequestMsg));
 }
 
-//Create the Login Close Request JSON message from LoginCloseRequestMsg class and send it to ADS WebSocket
+//Create the Login Close Request JSON message from LoginCloseRequestMsg class and send it to Real-Time Advanced Distribution Server WebSocket
 function sendCloseLoginrequest(): void {
 
   let logincloserequestmsg: CloseMsg = new CloseMsg(loginID, loginDomain);
