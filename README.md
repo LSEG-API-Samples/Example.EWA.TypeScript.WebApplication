@@ -82,4 +82,5 @@ For any questions related to this article or the WebSocket API page, please use 
 ### Changelogs
 - 21 December 2017: Fixed UI, change the service name to be an optional parameter, Add README.md content
 - 11 January 2018: Now the application can handle subscription IDs.
-- 28 January 2020: Rebranding
+- 28 January 2021: Rebranding.
+- 17 March 2021: Update libraries.
