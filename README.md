@@ -1,7 +1,7 @@
 # Elecktron WebSocket API with TypeScript Example
 ## Overview
 
-**Update**: January 2021.
+**Update**: March 2021.
 
 [Websocket API for Pricing Streaming and Real-Time Service](https://developers.refinitiv.com/en/api-catalog/elektron/refinitiv-websocket-api) aka Websocket API enables easy integration into a multitude of client technology environments such as scripting and web.  This API runs directly on your Refinitiv Real-Time Distribution System and presents data in an open (JSON) readable format. The API supports all Refinitiv data models and can be integrated into multiple client technology standards e.g. JavaScript, Python, R, .Net, etc.
 
