@@ -84,4 +84,4 @@ For any questions related to this article or the WebSocket API page, please use 
 - 11 January 2018: Now the application can handle subscription IDs.
 - 28 January 2021: Rebranding.
 - 17 March 2021: Update libraries.
-- 11 May 2021: Update lodash library (CVE-2021-23337).
+- 11 May 2021: Update lodash library (CVE-2021-23337) and major libraries.
