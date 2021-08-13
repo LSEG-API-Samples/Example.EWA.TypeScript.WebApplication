@@ -4,22 +4,23 @@
   "description": "A simple project that demonstrates how to implement WebSocket with TypeScript",
   "main": "server.js",
   "dependencies": {
-    "@types/express": "^4.17.11",
-    "@types/node": "^15.0.2",
-    "@types/websocket": "^1.0.2",
+    "@types/express": "^4.17.13",
+    "@types/node": "^15.14.7",
+    "@types/websocket": "^1.0.4",
     "express": "^4.17.1"
   },
   "devDependencies": {
     "awesome-typescript-loader": "^5.2.1",
     "mem": "^8.1.1",
-    "source-map-loader": "^2.0.1",
-    "typescript": "^4.2.4",
+    "source-map-loader": "^2.0.2",
+    "typescript": "^4.3.5",
     "webpack": "5.37.0",
-    "webpack-cli": "^4.7.0",
-    "yargs-parser": "^20.2.7"
+    "webpack-cli": "^4.7.2",
+    "yargs-parser": "^20.2.9"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "author": "Wasin Waeosri <wasin.waeosri@refinitiv.com> (https://developers.refinitiv.com/)",
   "license": "MIT",
