@@ -2,17 +2,17 @@
 ## Overview
 
 Example Code Disclaimer:
-ALL EXAMPLE CODE IS PROVIDED ON AN “AS IS” AND “AS AVAILABLE” BASIS FOR ILLUSTRATIVE PURPOSES ONLY. REFINITIV MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, AS TO THE OPERATION OF THE EXAMPLE CODE, OR THE INFORMATION, CONTENT, OR MATERIALS USED IN CONNECTION WITH THE EXAMPLE CODE. YOU EXPRESSLY AGREE THAT YOUR USE OF THE EXAMPLE CODE IS AT YOUR SOLE RISK.
+ALL EXAMPLE CODE IS PROVIDED ON AN “AS IS” AND “AS AVAILABLE” BASIS FOR ILLUSTRATIVE PURPOSES ONLY. LSEG MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, AS TO THE OPERATION OF THE EXAMPLE CODE, OR THE INFORMATION, CONTENT, OR MATERIALS USED IN CONNECTION WITH THE EXAMPLE CODE. YOU EXPRESSLY AGREE THAT YOUR USE OF THE EXAMPLE CODE IS AT YOUR SOLE RISK.
 
-**Update**: March 2022.
+**Update**: January 2025.
 
-[Websocket API for Pricing Streaming and Real-Time Service](https://developers.refinitiv.com/en/api-catalog/refinitiv-real-time-opnsrc/refinitiv-websocket-api) aka Websocket API enables easy integration into a multitude of client technology environments such as scripting and web.  This API runs directly on your Refinitiv Real-Time Distribution System and presents data in an open (JSON) readable format. The API supports all Refinitiv data models and can be integrated into multiple client technology standards e.g. JavaScript, Python, R, .Net, etc.
+[Websocket API for Pricing Streaming and Real-Time Service](https://developers.lseg.com/en/api-catalog/real-time-opnsrc/websocket-api) aka Websocket API enables easy integration into a multitude of client technology environments such as scripting and web.  This API runs directly on your Real-Time Distribution System and presents data in an open (JSON) readable format. The API supports all real-time data models and can be integrated into multiple client technology standards e.g. JavaScript, Python, R, .Net, etc.
 
 [TypeScript](https://www.typescriptlang.org) programming language is a typed superset of JavaScript that compiles to readable, standards-based JavaScript. The language is designed for application-scale JavaScript by adding optional types, classes, modules, ECMAScript 2015 features, and future proposals to JavaScript. TypeScript supports tools for large-scale JavaScript applications for any browser, for any host, on any OS. TypeScript is a first-class programming language in Microsoft Visual Studio, [Angular](https://angularjs.org/) web application platform. It also supported by various application frameworks like [React](https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter), [NodeJS and Express framework](https://github.com/Microsoft/TypeScript-Node-Starter#typescript-node-starter), [ASP.Net Core](https://www.typescriptlang.org/docs/handbook/asp-net-core.html), [Vue.js](https://github.com/Microsoft/TypeScript-Vue-Starter#typescript-vue-starter), and more. 
 
-This example shows how to implement the WebSocket API JavaScript web application with TypeScript. The web application source codes are implemented in TypeScript language to connect, consume and display data from the Refinitiv Real-Time Advanced Distribution server via the WebSocket API in the web browsers. All source codes will be compiled to readable JavaScript with [Webpack](https://webpack.js.org/) JavaScript module bundler.
+This example shows how to implement the WebSocket API JavaScript web application with TypeScript. The web application source codes are implemented in TypeScript language to connect, consume and display data from the Real-Time Advanced Distribution server via the WebSocket API in the web browsers. All source codes will be compiled to readable JavaScript with [Webpack](https://webpack.js.org/) JavaScript module bundler.
 
-*Note: The initial release of this API is for deployed Refinitiv Real-Time Advanced Distribution Server customers only (i.e. to use it you will need an installed version of Refinitiv Real-Time Advanced Distribution Server 3.2.1 and above). 
+*Note: The initial release of this API is for deployed Real-Time Advanced Distribution Server customers only (i.e. to use it you will need an installed version of Real-Time Advanced Distribution Server 3.2.1 and above). 
 
 ## Supported Web Browsers
 The example supports Chrome/Microsoft Edge (Chrome-based version), Firefox, and IE11 (based on the WebSocket and Web Workers browser supported platform).
@@ -68,17 +68,18 @@ The project includes the following files and folder
 ![application display](images/application_screen.png "application display")
 
 ## References
+
 For further details, please check out the following resources:
-* [Refinitiv Real-Time & Distribution Family page](https://developers.refinitiv.com/en/use-cases-catalog/refinitiv-real-time) on the [Refinitiv Developer Community](https://developers.refinitiv.com/) web site.
-* [WebSocket API page](https://developers.refinitiv.com/en/api-catalog/elektron/refinitiv-websocket-api).
+* [Real-Time & Distribution Family page](https://developers.lseg.com/en/use-cases-catalog/real-time) on the [LSEG Developers Community](https://developers.lseg.com/) web site.
+* [WebSocket API page](https://developers.lseg.com/en/api-catalog/real-time-opnsrc/websocket-api).
 * [Developer Webinar Recording: Introduction to Electron Websocket API](https://www.youtube.com/watch?v=CDKWMsIQfaw)
 * [TypeScript programming language: Documentation](https://www.typescriptlang.org/docs/home.html).
 * [Mozilla Developer Network: WebSocket API page](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 * [WebSocket technology](https://www.websocket.org/index.html) web site.
-* [Developer Article: Consume Realtime data with Refinitiv Data Platform](https://developers.refinitiv.com/en/article-catalog/article/consume-real-time-data-with-refinitiv-data-platform)
-* [Developer Article: How to implement WebSocket API JavaScript application with HTML Web Workers](https://developers.refinitiv.com/en/article-catalog/article/how-implement-elektron-websocket-api-javascript-application-html-web-workers)
-* [Developer Article: How to implement WebSocket API JavaScript application with TypeScript](https://developers.refinitiv.com/en/article-catalog/article/how-to-implement-elektron-websocket-api-javascript-application-typescript)
-* [Developer Article: Consuming Order Book Level 2 data with Websocket API](https://developers.refinitiv.com/en/article-catalog/article/consuming-order-book-level-2-data-with-elektron-websocket-api)
+* [Developer Article: Consume Realtime data with Data Platform](https://developers.lseg.com/en/article-catalog/article/consume-real-time-data-with-refinitiv-data-platform)
+* [Developer Article: How to implement WebSocket API JavaScript application with HTML Web Workers](https://developers.lseg.com/en/article-catalog/article/how-implement-elektron-websocket-api-javascript-application-html-web-workers)
+* [Developer Article: How to implement WebSocket API JavaScript application with TypeScript](https://developers.lseg.com/en/article-catalog/article/how-to-implement-elektron-websocket-api-javascript-application-typescript)
+* [Developer Article: Consuming Order Book Level 2 data with Websocket API](https://developers.lseg.com/en/article-catalog/article/consuming-order-book-level-2-data-with-elektron-websocket-api)
 
 For any questions related to this article or the WebSocket API page, please use the Developer Community [Q&A Forum](https://community.developers.refinitiv.com/spaces/152/websocket-api.html).
 
@@ -88,3 +89,4 @@ For any questions related to this article or the WebSocket API page, please use 
 - 28 January 2021: Rebranding.
 - 17 March 2021: Update libraries.
 - 11 May 2021: Update lodash library (CVE-2021-23337) and major libraries.
+- 24 January 2025: Update libraries, Rebranding (again), and update links URLs.

@@ -22,10 +22,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
   },
-  "author": "Wasin Waeosri <wasin.waeosri@refinitiv.com> (https://developers.refinitiv.com/)",
+  "author": "Wasin Waeosri <wasin.waeosri@lseg.com> (https://developers.lseg.com/)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Refinitiv-API-Samples/Example.EWA.TypeScript.WebApplication"
+    "url": "https://github.com/LSEG-API-Samples/Example.EWA.TypeScript.WebApplication"
   }
 }
